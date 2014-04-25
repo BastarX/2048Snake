@@ -1,15 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Player : MonoBehaviour {
-
+public class Player : MonoBehaviour 
+{
+	BoxCollider2D col;
 	// Use this for initialization
-	void Start () {
-	
+	void Start () 
+	{
+		col = GetComponent<BoxCollider2D>();
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+	{
 	
 	}
 }

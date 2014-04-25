@@ -44,13 +44,20 @@ public class InitLevel : MonoBehaviour
 			System.Random r = new System.Random();
 			int i = r.Next (0,100);
 
+			float x = offset + (-level.transform.localScale.x/2 + mult*r.Next (0,levelSize));
+			float y = -offset -(-level.transform.localScale.y/2 + mult*r.Next (0,levelSize));
+
 			if(i <= 65)
 			{
-				GameObject o = (GameObject)Instantiate (texts[1], new Vector2(1,1),Quaternion.identity);
+				GameObject o = (GameObject)Instantiate (texts[1], new Vector2(x,y),Quaternion.identity);
+				o.transform.parent = level.transform;
+				o.transform.localScale = new Vector2(0.1f,0.1f);
 			}
 			else
 			{
-				GameObject o = (GameObject)Instantiate (texts[2], new Vector2(1,1),Quaternion.identity);
+				GameObject o = (GameObject)Instantiate (texts[2], new Vector2(x,y),Quaternion.identity);
+				o.transform.parent = level.transform;
+				o.transform.localScale = new Vector2(0.1f,0.1f);
 			}
 		}
 	}
