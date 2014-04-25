@@ -9,16 +9,20 @@ public class InitLevel : MonoBehaviour
 
 	public static float offset = 0.8f;
 	public static float mult = 1.2f;
+	public static float size;
 	public static float time;
 	public static float maxTime = 5000f;
 
 	public GameObject level;
 	public Player player;
 	public GameObject[] texts;
+	public GameObject wall;
 
 	// Use this for initialization
 	void Start () 
 	{
+		size = level.transform.localScale.x/2;
+
 		for(int y = 0;y<levelSize;y++)
 		{
 			for(int x = 0;x<levelSize;x++)
@@ -27,6 +31,29 @@ public class InitLevel : MonoBehaviour
 				o.transform.parent = level.transform;
 				o.transform.localScale = new Vector2(0.1f,0.1f);
 			}
+		}
+
+		for(int i = 0;i<levelSize;i++)
+		{
+			GameObject o = (GameObject)Instantiate (wall,new Vector2(+0.8f + (-level.transform.localScale.x/2 + mult*i),0.2f-(-level.transform.localScale.y/2 + mult*0)),Quaternion.identity);
+			o.transform.parent = level.transform;
+			o.name = "Wall";
+			o.transform.localScale = new Vector2(0.1f,0.1f);
+
+			o = (GameObject)Instantiate (wall,new Vector2(+0.8f + (-level.transform.localScale.x/2 + mult*i),-0.6f-(-level.transform.localScale.y/2 + mult*levelSize)),Quaternion.identity);
+			o.transform.parent = level.transform;
+			o.name = "Wall";
+			o.transform.localScale = new Vector2(0.1f,0.1f);
+
+			o = (GameObject)Instantiate (wall,new Vector2(-0.2f + (-level.transform.localScale.x/2 + mult*0),-0.8f-(-level.transform.localScale.y/2 + mult*i)),Quaternion.identity);
+			o.transform.parent = level.transform;
+			o.name = "Wall";
+			o.transform.localScale = new Vector2(0.1f,0.1f);
+
+			o = (GameObject)Instantiate (wall,new Vector2(0.6f + (-level.transform.localScale.x/2 + mult*levelSize),-0.8f-(-level.transform.localScale.y/2 + mult*i)),Quaternion.identity);
+			o.transform.parent = level.transform;
+			o.name = "Wall";
+			o.transform.localScale = new Vector2(0.1f,0.1f);
 		}
 
 		time = maxTime;
