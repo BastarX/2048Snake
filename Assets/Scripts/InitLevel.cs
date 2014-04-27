@@ -77,15 +77,22 @@ public class InitLevel : MonoBehaviour
 			if(i <= 65)
 			{
 				GameObject o = (GameObject)Instantiate (texts[1], new Vector2(x,y),Quaternion.identity);
+				o.name = "2";
 				o.transform.parent = level.transform;
 				o.transform.localScale = new Vector2(0.1f,0.1f);
 			}
 			else
 			{
 				GameObject o = (GameObject)Instantiate (texts[2], new Vector2(x,y),Quaternion.identity);
+				o.name = "4";
 				o.transform.parent = level.transform;
 				o.transform.localScale = new Vector2(0.1f,0.1f);
 			}
 		}
+	}
+
+	public void GameOver()
+	{
+
 	}
 }
