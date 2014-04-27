@@ -99,7 +99,7 @@ public class Player : MonoBehaviour
 
 		tail.Insert(0, g);
 
-		//UpdateVals ();
+		UpdateVals ();
 	}
 
 	void UpdatePositions()
@@ -126,12 +126,13 @@ public class Player : MonoBehaviour
 				if(v1 == v2)
 				{
 					int t = (int)Math.Sqrt(v1 + v2);
+					Debug.Log (t + " " +(v1+v2));
 					//Debug.Log (t + " " + tail[i].name + " " + tail[i+1].name);
 					GameObject g = tail[i];
 					tail.RemoveAt(i);
 					tail[i] = (GameObject)Instantiate(level.texts[t],g.transform.position,Quaternion.identity);
 					tail[i].GetComponent<Collider2D>().enabled = false;
-					Destroy (g);
+					//Destroy (g);
 				}
 			}
 		}

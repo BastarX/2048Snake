@@ -15,7 +15,8 @@ public class InitLevel : MonoBehaviour
 
 	public GameObject level;
 	public Player player;
-	public GameObject[] texts;
+	public Texture[] texts;
+	public GameObject tile;
 	public GameObject wall;
 
 	// Use this for initialization
